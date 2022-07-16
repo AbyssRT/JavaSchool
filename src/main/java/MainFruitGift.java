@@ -2,10 +2,10 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MainFriutGift {
+public class MainFruitGift {
     static final PrintStream sout = System.out;
     static final Scanner scn = new Scanner(System.in);
-    static ArrayList<int[]> res = new ArrayList<>();
+    static ArrayList<int[]> res = new ArrayList<>(); //результаты вариантов подарка
     static int ot = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
     static int at = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
     static int pt = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
