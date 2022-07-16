@@ -19,24 +19,24 @@ public class MainCalc {
             zeroErr = false;
             flagOk = true;
             do {
-                sout.println("Введите первый операнд: ");
+                sout.print("Введите первый операнд: ");
                 var1 = validatorOprnd(scn.nextLine());
             } while (flagOk);
 
             flagOk = true;
             do {
-                sout.println("Введите второй операнд: ");
+                sout.print("Введите второй операнд: ");
                 var2 = validatorOprnd(scn.nextLine());
             } while (flagOk);
 
             flagOk = true;
             do {
-                sout.println("Введите оператор: ");
+                sout.print("Введите оператор: ");
                 oper = validatorOpertr(scn.nextLine());
             } while (flagOk);
 
             double res = calculate(var1, var2, oper);
-            out =  String.format( "Результат: \n %s %s %s = ",
+            out =  String.format( "Результат: %s %s %s = ",
                     var1, strtype, var2);
             if (zeroErr) {
                 out = out + "Ошибка! Деление на 0 даёт неопределённость";
@@ -54,7 +54,7 @@ public class MainCalc {
             f = Float.parseFloat(instr);
             flagOk = false;
         } catch (Exception e) {
-            sout.println("Нужно писать только число. Для нецелых чисел разделитель точка. Пример: 2.9");
+            sout.println("Нужно писать только число. Для нецелых чисел разделитель точка. Пример: 3.14");
         }
         return f;
     }

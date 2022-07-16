@@ -16,9 +16,7 @@ public class MainFriutGift {
 
     public static void main(String[] args) {
         sout.print("Мануал. Через пробел надо последовательно указать вес подарка и " +
-                "веса апельсина, яблока и груши. Например: 40 25 15 10 \n " +
-                "Данная программа намерено без особой защиты от дурака, " +
-                "в отличии от других ДЗ, так как мне лень :)\n");
+                "веса апельсина, яблока и груши. Например: 40 25 15 10 \n ");
         gift = 0;
         int orange = 0;
         int apple = 0;
@@ -36,7 +34,7 @@ public class MainFriutGift {
                 apple = Integer.parseInt(s[2]);
                 pear = Integer.parseInt(s[3]);
             } catch (Exception e) {
-                sout.println("Неправильный ввод! Попробуй снова");
+                sout.println("Неправильный ввод! Попробуй снова! Тут нет защиты от дурака");
                 continue;
             }
             calculate(orange, apple, pear);
