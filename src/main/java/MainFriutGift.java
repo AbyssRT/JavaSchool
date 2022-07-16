@@ -6,13 +6,13 @@ public class MainFriutGift {
     static final PrintStream sout = System.out;
     static final Scanner scn = new Scanner(System.in);
     static ArrayList<int[]> res = new ArrayList<>();
-    static int ot = 0;
-    static int at = 0;
-    static int pt = 0;
-    static int i;
-    static int j;
-    static int h;
-    static int gift;
+    static int ot = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int at = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int pt = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int i;    //переменная кол-во апельсинов
+    static int j;   //переменная кол-во яблок
+    static int h;   //переменная кол-во груш
+    static int gift; //вес подарка
 
     public static void main(String[] args) {
         sout.print("Мануал. Через пробел надо последовательно указать вес подарка и " +
