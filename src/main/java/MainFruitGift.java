@@ -33,8 +33,13 @@ public class MainFruitGift {
                 weight_orange = Integer.parseInt(params[1]);
                 weight_apple = Integer.parseInt(params[2]);
                 weight_pear = Integer.parseInt(params[3]);
-            } catch (Exception e) {
-                sout.println("Неправильный ввод! Попробуй снова! Тут нет защиты от дурака");
+            } catch (NumberFormatException e) {
+                System.out.println(e.toString());
+                sout.println("Нужно вводить только целые числа через пробел");
+                continue;
+            } catch (ArrayIndexOutOfBoundsException e2) {
+                System.out.println(e2.toString());
+                sout.println("Недостаточно аргументов");
                 continue;
             }
             calculate(weight_orange, weight_apple, weight_pear);
