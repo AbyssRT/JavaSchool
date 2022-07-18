@@ -2,10 +2,9 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class MainLuckyNumber {
-    static final PrintStream sout = System.out;
-    static final Scanner scn = new Scanner(System.in);
-
     public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        PrintStream sout = System.out;
         String instr;
         String number;
         String lucky;
@@ -28,6 +27,7 @@ public class MainLuckyNumber {
 
     static boolean validator(String instr) {
         boolean flag = false;
+        PrintStream sout = System.out;
         if (instr.length() > 6) {
             sout.println("Ошибка! Необходимо ввести число из шести знаков или меньше");
             flag = true;
@@ -38,7 +38,8 @@ public class MainLuckyNumber {
                 sout.println("Ошибка! Номер билета не может быть отрицательным");
                 flag = true;
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            sout.println(e.toString());
             sout.println("Ошибка! Это не целое число билета");
             flag = true;
         }

@@ -3,60 +3,60 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainFruitGift {
-    static final PrintStream sout = System.out;
-    static final Scanner scn = new Scanner(System.in);
     static ArrayList<int[]> res = new ArrayList<>(); //результаты вариантов подарка
-    static int ot = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
-    static int at = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
-    static int pt = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
-    static int i;    //переменная кол-во апельсинов
-    static int j;   //переменная кол-во яблок
-    static int h;   //переменная кол-во груш
+    static int orng_total = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int appl_total = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int pear_total = 0; //для удобства что бы не передавать переменные в checker. переменная веса * кол-во
+    static int cnt_orng;    //переменная кол-во апельсинов
+    static int cnt_appl;   //переменная кол-во яблок
+    static int cnt_pear;   //переменная кол-во груш
     static int gift; //вес подарка
 
     public static void main(String[] args) {
+        PrintStream sout = System.out;
+        Scanner scn = new Scanner(System.in);
         sout.print("Мануал. Через пробел надо последовательно указать вес подарка и " +
                 "веса апельсина, яблока и груши. Например: 40 25 15 10 \n ");
         gift = 0;
-        int orange = 0;
-        int apple = 0;
-        int pear = 0;
+        int weight_orange = 0;
+        int weight_apple = 0;
+        int weight_pear = 0;
 
         do {
             res = new ArrayList<>();
             sout.print("Вход программы: ");
             String instr = scn.nextLine();
-            String[] s;
+            String[] params;
             try {
-                s = instr.split(" ");
-                gift = Integer.parseInt(s[0]);
-                orange = Integer.parseInt(s[1]);
-                apple = Integer.parseInt(s[2]);
-                pear = Integer.parseInt(s[3]);
+                params = instr.split(" ");
+                gift = Integer.parseInt(params[0]);
+                weight_orange = Integer.parseInt(params[1]);
+                weight_apple = Integer.parseInt(params[2]);
+                weight_pear = Integer.parseInt(params[3]);
             } catch (Exception e) {
                 sout.println("Неправильный ввод! Попробуй снова! Тут нет защиты от дурака");
                 continue;
             }
-            calculate(orange, apple, pear);
+            calculate(weight_orange, weight_apple, weight_pear);
             sout.format("Ответ: %d \n", res.size());
             int c = 0;
-            for (int[] f: res) {
+            for (int[] r : res) {
                 c++;
                 sout.format("%d вариант - %d orange, %d apple, %d pear \n",
-                        c, f[0], f[1], f[2]);
+                        c, r[0], r[1], r[2]);
             }
         } while (true);
     }
 
-    static void calculate(int o, int a, int p) {
-        for (i = 0; i <= gift/o; i++) {
-            ot = o * i;
+    static void calculate(int w_orng, int w_apl, int w_pear) {
+        for (cnt_orng = 0; cnt_orng <= gift/ w_orng; cnt_orng++) {
+            orng_total = w_orng * cnt_orng;
             checker();
-            for (j = 0; j<= gift/a; j++) {
-                at = a * j;
+            for (cnt_appl = 0; cnt_appl <= gift/ w_apl; cnt_appl++) {
+                appl_total = w_apl * cnt_appl;
                 checker();
-                for (h = 0; h <= gift/p ; h++){
-                    pt = p * h;
+                for (cnt_pear = 0; cnt_pear <= gift/ w_pear; cnt_pear++){
+                    pear_total = w_pear * cnt_pear;
                     checker();
                 }
             }
@@ -64,8 +64,8 @@ public class MainFruitGift {
     }
 
     static void checker() {
-        if ( (ot + at + pt) == gift) {
-            int[] e = {i, j, h};
+        if ( (orng_total + appl_total + pear_total) == gift) {
+            int[] e = {cnt_orng, cnt_appl, cnt_pear};
             res.add(e);
         }
     }
