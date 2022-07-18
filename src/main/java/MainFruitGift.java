@@ -53,12 +53,12 @@ public class MainFruitGift {
         } while (true);
     }
 
-    static void calculate(int w_orng, int w_apl, int w_pear) {
+    static void calculate(int w_orng, int w_appl, int w_pear) {
         for (cnt_orng = 0; cnt_orng <= gift/ w_orng; cnt_orng++) {
             orng_total = w_orng * cnt_orng;
             checker();
-            for (cnt_appl = 0; cnt_appl <= gift/ w_apl; cnt_appl++) {
-                appl_total = w_apl * cnt_appl;
+            for (cnt_appl = 0; cnt_appl <= gift/ w_appl; cnt_appl++) {
+                appl_total = w_appl * cnt_appl;
                 checker();
                 for (cnt_pear = 0; cnt_pear <= gift/ w_pear; cnt_pear++){
                     pear_total = w_pear * cnt_pear;
